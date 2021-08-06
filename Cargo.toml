@@ -1,0 +1,18 @@
+[package]
+name = "asgi-server"
+version = "0.1.0"
+edition = "2018"
+
+[lib]
+name = "asgi_server"
+crate-type = ["cdylib"] 
+
+[dependencies]
+http = "0.2"
+hyper = { version = "0.14", features = ["http1", "http2", "server", "runtime", "stream"] }
+pyo3 = { version = "0.13", features = ["extension-module"] }
+pyo3-asyncio = { version = "0.13", features = ["tokio-runtime", "attributes"] }
+tokio = { version = "1.4", features = ["full"] }
+futures = "0.3"
+itertools = "0.10"
+percent-encoding = "2.1"

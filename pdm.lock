@@ -1,0 +1,107 @@
+[[package]]
+name = "anyio"
+version = "3.2.1"
+requires_python = ">=3.6.2"
+summary = "High level compatibility layer for multiple asynchronous event loop implementations"
+dependencies = [
+    "idna>=2.8",
+    "sniffio>=1.1",
+]
+
+[[package]]
+name = "click"
+version = "7.1.2"
+requires_python = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*"
+summary = "Composable command line interface toolkit"
+
+[[package]]
+name = "idna"
+version = "3.2"
+requires_python = ">=3.5"
+summary = "Internationalized Domain Names in Applications (IDNA)"
+
+[[package]]
+name = "maturin"
+version = "0.11.2"
+requires_python = ">=3.6"
+summary = "Build and publish crates with pyo3, rust-cpython and cffi bindings as well as\n\trust binaries as python packages"
+dependencies = [
+    "toml~=0.10.2",
+]
+
+[[package]]
+name = "sniffio"
+version = "1.2.0"
+requires_python = ">=3.5"
+summary = "Sniff out which async library your code is running under"
+
+[[package]]
+name = "starlette"
+version = "0.16.0"
+requires_python = ">=3.6"
+summary = "The little ASGI library that shines."
+dependencies = [
+    "anyio<4,>=3.0.0",
+]
+
+[[package]]
+name = "toml"
+version = "0.10.2"
+requires_python = ">=2.6,!=3.0.*,!=3.1.*,!=3.2.*"
+summary = "Python Library for Tom's Obvious, Minimal Language"
+
+[[package]]
+name = "typer"
+version = "0.3.2"
+requires_python = ">=3.6"
+summary = "Typer, build great CLIs. Easy to code. Based on Python type hints."
+dependencies = [
+    "click<7.2.0,>=7.1.1",
+]
+
+[metadata]
+lock_version = "3.1"
+content_hash = "sha256:e8437ea1588dcd977be3a7b7231636da8675414d07be790907c591d469a76f3a"
+
+[metadata.files]
+"anyio 3.2.1" = [
+    {file = "anyio-3.2.1-py3-none-any.whl", hash = "sha256:442678a3c7e1cdcdbc37dcfe4527aa851b1b0c9162653b516e9f509821691d50"},
+    {file = "anyio-3.2.1.tar.gz", hash = "sha256:07968db9fa7c1ca5435a133dc62f988d84ef78e1d9b22814a59d1c62618afbc5"},
+]
+"click 7.1.2" = [
+    {file = "click-7.1.2-py2.py3-none-any.whl", hash = "sha256:dacca89f4bfadd5de3d7489b7c8a566eee0d3676333fbb50030263894c38c0dc"},
+    {file = "click-7.1.2.tar.gz", hash = "sha256:d2b5255c7c6349bc1bd1e59e08cd12acbbd63ce649f2588755783aa94dfb6b1a"},
+]
+"idna 3.2" = [
+    {file = "idna-3.2-py3-none-any.whl", hash = "sha256:14475042e284991034cb48e06f6851428fb14c4dc953acd9be9a5e95c7b6dd7a"},
+    {file = "idna-3.2.tar.gz", hash = "sha256:467fbad99067910785144ce333826c71fb0e63a425657295239737f7ecd125f3"},
+]
+"maturin 0.11.2" = [
+    {file = "maturin-0.11.2-py3-none-macosx_10_7_x86_64.whl", hash = "sha256:de439e1572eb0711caeb6e4f4aec692829c7cc856b264861c73219b16be8b8d4"},
+    {file = "maturin-0.11.2-py3-none-macosx_10_9_x86_64.macosx_11_0_arm64.macosx_10_9_universal2.whl", hash = "sha256:99aed60b0427233e9d7005eea3d42887455c3be1e52a3b50246a86c4df215cd1"},
+    {file = "maturin-0.11.2-py3-none-manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:c13392b4e6913c35655bbbf62ed4f65a340c1501734ab172410b03068c4633f0"},
+    {file = "maturin-0.11.2-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:520d3aaf4e0a8d520f9498ffd7f106641d5e5782cbf26d83da66c26c50b0a7c4"},
+    {file = "maturin-0.11.2-py3-none-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:2631a52d4936a550baa645921fe290749df3bc3c8be85255e650cb3b419dd445"},
+    {file = "maturin-0.11.2-py3-none-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:27cbc80e9adb19957a4006274edddf6184e639b0c096dfa2f8fdd652401b2b69"},
+    {file = "maturin-0.11.2-py3-none-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:5c492ea891602088528485f6c257ffbe02143ea651b3287dcaccf3d542ebd6f7"},
+    {file = "maturin-0.11.2-py3-none-manylinux_2_5_x86_64.manylinux1_x86_64.whl", hash = "sha256:d2ed778b67317efd73f9ce580a6dd6569474e5a9bc3bfff4aa4d7e9a0bd9f888"},
+    {file = "maturin-0.11.2-py3-none-win32.whl", hash = "sha256:f14ddc72a3a37c72b8449704816e670f557e6d9148d35d342750dded7709eae4"},
+    {file = "maturin-0.11.2-py3-none-win_amd64.whl", hash = "sha256:14afc56be161e52bad8211eba84d8f8e8fad90a86d1c1894a703a8801c6d81df"},
+    {file = "maturin-0.11.2.tar.gz", hash = "sha256:8f520eccda84f028bce5556b2c8b6dce5eced105734fe8f645c72937f05cf054"},
+]
+"sniffio 1.2.0" = [
+    {file = "sniffio-1.2.0-py3-none-any.whl", hash = "sha256:471b71698eac1c2112a40ce2752bb2f4a4814c22a54a3eed3676bc0f5ca9f663"},
+    {file = "sniffio-1.2.0.tar.gz", hash = "sha256:c4666eecec1d3f50960c6bdf61ab7bc350648da6c126e3cf6898d8cd4ddcd3de"},
+]
+"starlette 0.16.0" = [
+    {file = "starlette-0.16.0-py3-none-any.whl", hash = "sha256:38eb24bf705a2c317e15868e384c1b8a12ca396e5a3c3a003db7e667c43f939f"},
+    {file = "starlette-0.16.0.tar.gz", hash = "sha256:e1904b5d0007aee24bdd3c43994be9b3b729f4f58e740200de1d623f8c3a8870"},
+]
+"toml 0.10.2" = [
+    {file = "toml-0.10.2-py2.py3-none-any.whl", hash = "sha256:806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b"},
+    {file = "toml-0.10.2.tar.gz", hash = "sha256:b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"},
+]
+"typer 0.3.2" = [
+    {file = "typer-0.3.2-py3-none-any.whl", hash = "sha256:ba58b920ce851b12a2d790143009fa00ac1d05b3ff3257061ff69dbdfc3d161b"},
+    {file = "typer-0.3.2.tar.gz", hash = "sha256:5455d750122cff96745b0dec87368f56d023725a7ebc9d2e54dd23dc86816303"},
+]

@@ -1,0 +1,13 @@
+*.so
+.pytest_cache
+__pycache__
+__pypackages__/
+./.pdm.toml
+dist
+*.egg-info
+
+# Added by cargo
+#
+# already existing elements were commented out
+
+/target
