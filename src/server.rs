@@ -8,10 +8,12 @@ use crate::http;
 use hyper::server::conn::{AddrIncoming, AddrStream};
 use hyper::server::Builder;
 use hyper::service::{make_service_fn, service_fn};
+use log;
 use pyo3::Python;
 pub use settings::Settings;
 
 pub async fn start_http_server(driver: AsgiDriver, settings: pyo3::Py<Settings>) {
+    log::info!("Starting asgi-server 0.0.1");
     let settings = Python::with_gil(|py| {
         let settings: &Settings = &*settings.borrow(py);
         settings.clone()
@@ -30,8 +32,9 @@ pub async fn start_http_server(driver: AsgiDriver, settings: pyo3::Py<Settings>)
     });
 
     let server = Builder::<AddrIncoming>::from(&settings).serve(make_service);
+    log::info!("Listening at: http://{}", SocketAddr::from(&settings));
 
     if let Err(e) = server.await {
-        eprintln!("server error: {}", e);
+        log::error!("server error: {}", e);
     }
 }

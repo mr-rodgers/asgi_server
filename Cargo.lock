@@ -3,6 +3,12 @@
 version = 3
 
 [[package]]
+name = "arc-swap"
+version = "1.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e906254e445520903e7fc9da4f709886c84ae4bc4ddaf0e093188d66df4dc820"
+
+[[package]]
 name = "asgi-server"
 version = "0.1.0"
 dependencies = [
@@ -10,9 +16,11 @@ dependencies = [
  "http",
  "hyper",
  "itertools",
+ "log",
  "percent-encoding",
  "pyo3",
  "pyo3-asyncio",
+ "pyo3-log",
  "tokio",
 ]
 
@@ -545,6 +553,17 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn",
+]
+
+[[package]]
+name = "pyo3-log"
+version = "0.3.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5f2965889c13ef9401c9483965c4a9e5737df9cc7ab53f3893abadf481b2977f"
+dependencies = [
+ "arc-swap",
+ "log",
+ "pyo3",
 ]
 
 [[package]]

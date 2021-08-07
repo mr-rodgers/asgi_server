@@ -37,6 +37,14 @@ pub async fn handle_request(
     asgi_driver: AsgiDriver,
 ) -> Result<Response<HttpResponseBody>, Infallible> {
     let (parts, request_body) = request.into_parts();
+    let req_method = parts.method.to_string();
+    let req_path = parts
+        .uri
+        .path_and_query()
+        .map(|pq| pq.as_str())
+        .unwrap_or("/")
+        .to_string();
+    let req_ver = version_as_string(&parts.version);
 
     let (disconnect_emitter, disconnect_event) = oneshot::channel::<()>();
     let stream_to_py = get_messages_to_py_stream(request_body, disconnect_event);
@@ -47,9 +55,9 @@ pub async fn handle_request(
 
     let rt = pyo3_asyncio::tokio::get_runtime();
 
-    let __ = rt.spawn(stream_to_py.forward(results_from_rust));
-    let _ = rt.spawn(call_asgi_app(
-        scope::build(parts, remote_addr, server_addr),
+    rt.spawn(stream_to_py.forward(results_from_rust));
+    rt.spawn(call_asgi_app(
+        scope::build(parts, remote_addr.clone(), server_addr),
         asgi_driver,
         messages_to_py,
         results_from_py,
@@ -66,7 +74,17 @@ pub async fn handle_request(
     }
 
     response_head
-        .and_then(|head| build_response(head, messages_to_rust))
+        .and_then(|head| {
+            log::info!(
+                "{} - \"{} {} {}\" {}",
+                remote_addr,
+                req_method,
+                req_path,
+                req_ver,
+                head.status_code()
+            );
+            build_response(head, messages_to_rust)
+        })
         .or_else(handle_error)
 }
 
@@ -158,4 +176,16 @@ fn handle_error(err: PyErr) -> Result<Response<HttpResponseBody>, Infallible> {
         .body(HttpResponseBody::new())
         .unwrap();
     err.handle(default_response)
+}
+
+fn version_as_string(version: &http::Version) -> String {
+    let version_name = match version {
+        &http::Version::HTTP_09 => "0.9",
+        &http::Version::HTTP_10 => "1.0",
+        &http::Version::HTTP_11 => "1.1",
+        &http::Version::HTTP_2 => "2",
+        &http::Version::HTTP_3 => "3",
+        _ => "?",
+    };
+    format!("HTTP/{}", version_name)
 }

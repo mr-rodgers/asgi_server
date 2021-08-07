@@ -22,6 +22,10 @@ impl AsgiMessage for HttpResponseStart {
 }
 
 impl HttpResponseStart {
+    pub fn status_code(&self) -> u16 {
+        self.status.as_u16()
+    }
+
     fn get_status_code(message_dict: &PyDict) -> PyResult<StatusCode> {
         let status_code = PyAny::get_item(&message_dict, "status")?.extract::<u16>()?;
         StatusCode::from_u16(status_code).map_err(|status_problem| {

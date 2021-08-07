@@ -25,6 +25,7 @@ fn start_server(py: Python, asgi_app: Py<PyAny>, settings: Py<Settings>) -> PyRe
 /// A Python module implemented in Rust.
 #[pymodule(asgi_server)]
 fn asgi_server(py: Python, m: &PyModule) -> PyResult<()> {
+    pyo3_log::init();
     pyo3_asyncio::try_init(py)?;
     // Tokio needs explicit initialization before any pyo3-asyncio conversions.
     // The module import is a prime place to do this.

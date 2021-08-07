@@ -16,3 +16,5 @@ tokio = { version = "1.4", features = ["full"] }
 futures = "0.3"
 itertools = "0.10"
 percent-encoding = "2.1"
+pyo3-log = "0.3.1"
+log = "0.4.14"
