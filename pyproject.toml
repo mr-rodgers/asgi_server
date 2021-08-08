@@ -8,7 +8,7 @@ dependencies = [
 ]
 requires-python = ">=3.9"
 dynamic = ["classifiers"]
-license = { text = "CC-PDDC" }
+license = { file = "LICENSE" }
 
 [project.urls]
 homepage = ""
@@ -26,11 +26,6 @@ package-dir = "./"
 [tool.pdm.dev-dependencies]
 dev = [
     "maturin~=0.11"]
-test = [
-    "pytest~=6.2",
-    "pytest-cov~=2.12",
-    "starlette~=0.16",
-]
 
 [project.scripts]
 asgi-server = "asgi_server.__main__:main"
