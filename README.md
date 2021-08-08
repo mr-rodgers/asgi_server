@@ -1,6 +1,6 @@
 This is a proof-of-concept asgi 3.0 server implemented in Rust on [Hyper](https://github.com/hyperium/hyper).
 
-# Building
+## Building
 
 Since this a mixed project, there are two sets of dependencies: Rust and Python. 
 
